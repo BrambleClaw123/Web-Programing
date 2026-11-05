@@ -11,7 +11,7 @@ RUN mvn dependency:go-offline -B
 # Sao chép toàn bộ mã nguồn vào container
 COPY src ./src
 
-# ĐÂY LÀ DÒNG QUAN TRỌNG: Ghi đè cấu hình để ép Maven build ra bytecode tương thích với Java 8 của Tomcat 8.5
+# Ghi đè cấu hình để ép Maven build ra bytecode tương thích với Java 8 của Tomcat 8.5
 RUN mvn clean package -DskipTests -Dmaven.compiler.source=1.8 -Dmaven.compiler.target=1.8
 
 # Stage 2: Deploy ứng dụng vào Tomcat 8.5.34 chạy trên nền JRE 8
@@ -20,10 +20,13 @@ FROM tomcat:8.5.34-jre8-alpine
 # Xóa bỏ các ứng dụng mặc định của Tomcat để tránh tranh chấp đường dẫn
 RUN rm -rf /usr/local/tomcat/webapps/*
 
+# ĐÂY LÀ DÒNG QUAN TRỌNG: Vô hiệu hóa cổng AJP (8009) để tránh lỗi Render Health Check gửi nhầm request
+RUN sed -i '/Connector port="8009" protocol="AJP\/1.3"/,+2d' /usr/local/tomcat/conf/server.xml
+
 # Sao chép file WAR từ Stage 1 sang và đổi tên thành ROOT.war để chạy ở đường dẫn gốc "/"
 COPY --from=build /app/target/bai-1-ch02-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 
-# Mở cổng 8080 cho Render
+# Mở cổng 8080 cho Render kết nối vào giao thức HTTP chuẩn
 EXPOSE 8080
 
 # Khởi động ứng dụng
