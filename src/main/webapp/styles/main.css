@@ -5,8 +5,8 @@ body {
     margin-right: 2em;
 }
 
-h1 {
-    color: teal;
+h1, h2 {
+    color: #ff57fb;
 }
 
 label {
@@ -15,7 +15,7 @@ label {
     margin-bottom: 0.5em;
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"], input[type="email"], input[type="date"] {
     width: 15em;
     margin-left: 0.5em;
     margin-bottom: 0.5em;
@@ -27,4 +27,7 @@ br {
 
 #submit {
     margin-left: 0.5em;
+}
+label {
+    font-weight: bold;
 }

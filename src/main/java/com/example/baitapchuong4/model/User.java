@@ -1,21 +1,17 @@
-package com.example.baitap.model;
+package com.example.baitapchuong4.model;
 
-import java.io.Serializable;
+import java.time.LocalDate;
 
-public class User implements Serializable {
+public class User {
     private String firstName;
     private String lastName;
     private String email;
-
-    public User() {
-        firstName = "";
-        lastName = "";
-        email = "";
-    }
-
-    public User(String firstName, String lastName, String email) {
+    private LocalDate dateOfBirth;
+    public User() {}
+    public User(String firstName, String lastName, LocalDate dateOfBirth, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
         this.email = email;
     }
 
@@ -42,4 +38,13 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
 }
