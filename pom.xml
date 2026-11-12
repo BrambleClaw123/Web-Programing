@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example.baitap</groupId>
-    <artifactId>baitapchuong4</artifactId>
+    <artifactId>bai-tap-chuong-5</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>baitapchuong4</name>
+    <name>bai-tap-chuong-5</name>
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>21</maven.compiler.target>
-        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <maven.compiler.source>24</maven.compiler.source>
         <junit.version>5.13.2</junit.version>
     </properties>
 
