@@ -1,10 +1,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ include file="/includes/header.html" %>
 
-
 <h1>Join our email list</h1>
-<p>To join our email list, enter your name and
-    email address below.</p>
+<p>To join our email list, enter your name and email address below.</p>
 
 <c:if test="${message != null}">
     <p><i>${message}</i></p>

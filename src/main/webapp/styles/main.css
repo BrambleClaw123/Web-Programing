@@ -1,30 +1,9 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11pt;
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
-h1 {
-    color: teal;
-}
-
-label {
-    float: left;
-    width: 6em;
-    margin-bottom: 0.5em;
-}
-
-input[type="text"], input[type="email"] {
-    width: 15em;
-    margin-left: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-br {
-    clear: both;
-}
-
-#submit {
-    margin-left: 0.5em;
-}
+body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt; margin: 2em; }
+h1 { color: #3E8CC8; }
+label { float: left; width: 8em; font-weight: bold; }
+input[type=text], input[type=email] { margin-left: 0.5em; margin-bottom: 0.5em; }
+.pad_top { padding-top: 0.5em; }
+.margin_left { margin-left: 8.5em; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #999; padding: 4px 10px; text-align: left; }
+.right { text-align: right; }
