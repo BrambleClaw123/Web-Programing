@@ -29,7 +29,7 @@ public class EmailListServlet extends HttpServlet {
             action = "join";
         }
 
-        String url = "/index.jsp";
+        String url = "/ch08/index.jsp";
         if (action.equals("add")) {
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
@@ -48,7 +48,7 @@ public class EmailListServlet extends HttpServlet {
             users.add(user);
             session.setAttribute("users", users);
 
-            url = "/thanks.jsp";
+            url = "/ch08/thanks.jsp";
         }
         getServletContext().getRequestDispatcher(url).forward(request, response);
     }

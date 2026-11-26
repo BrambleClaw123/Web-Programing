@@ -1,28 +1,39 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="utf-8">
-    <title>Murach's Java Servlets and JSP</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    <title>Web Programming - Chọn bài</title>
+    <link rel="stylesheet" href="<c:url value='/styles/main.css'/>" type="text/css"/>
+    <style>
+        .menu { list-style: none; padding: 0; max-width: 560px; }
+        .menu li { margin: 0 0 12px 0; }
+        .menu a { display: block; padding: 14px 18px; border: 1px solid #3E8CC8;
+                  border-radius: 8px; text-decoration: none; color: #222; }
+        .menu a:hover { background: #eaf3fb; }
+        .menu strong { display: block; color: #3E8CC8; font-size: 12pt; }
+    </style>
 </head>
 <body>
-<h1>Downloads</h1>
+<h1>Web Programming</h1>
+<p>Choose:</p>
 
-<%-- Show the welcome message only if the first name cookie has a value --%>
-<c:if test="${cookie.firstNameCookie.value != null}">
-    <p>Welcome back, <c:out value="${cookie.firstNameCookie.value}"/>!</p>
-</c:if>
-
-<h2>List of albums</h2>
-<ul>
-    <li><a href="download?action=checkUser&amp;productCode=8601">86 (the band) - True Life Songs and Pictures</a></li>
-    <li><a href="download?action=checkUser&amp;productCode=pf01">Paddlefoot - The first CD</a></li>
-    <li><a href="download?action=checkUser&amp;productCode=pf02">Paddlefoot - The second CD</a></li>
-    <li><a href="download?action=checkUser&amp;productCode=jr01">Joe Rut - Genuine Wood Grained Finish</a></li>
+<ul class="menu">
+    <li>
+        <a href="<c:url value='/emailList'/>">
+            <strong>Chapter 8: Email List</strong>
+        </a>
+    </li>
+    <li>
+        <a href="<c:url value='/download'/>">
+            <strong>Chapter 9: Download</strong>
+        </a>
+    </li>
+    <li>
+        <a href="<c:url value='/loadProducts'/>">
+            <strong>Chapter 9: Cart</strong>
+        </a>
+    </li>
 </ul>
-
-<p><a href="download?action=viewCookies">View all cookies</a> |
-   <a href="download?action=deleteCookies">Delete cookies</a></p>
 </body>
 </html>

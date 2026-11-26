@@ -7,3 +7,5 @@ input[type=text], input[type=email] { margin-left: 0.5em; margin-bottom: 0.5em; 
 table { border-collapse: collapse; }
 th, td { border: 1px solid #999; padding: 4px 10px; text-align: left; }
 .right { text-align: right; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #999; padding: 4px 10px; text-align: left; }

@@ -23,16 +23,16 @@ public class DownloadServlet extends HttpServlet {
             action = "viewAlbums";
         }
 
-        String url = "/index.jsp";
+        String url = "/ch09-1/index.jsp";
         switch (action) {
-            case "viewAlbums" -> url = "/index.jsp";
+            case "viewAlbums" -> url = "/ch09-1/index.jsp";
             case "checkUser" -> url = checkUser(request);
-            case "viewCookies" -> url = "/view_cookies.jsp";
+            case "viewCookies" -> url = "/ch09-1/view_cookies.jsp";
             case "deleteCookies" -> {
                 deleteCookies(request, response);
-                url = "/index.jsp";
+                url = "/ch09-1/index.jsp";
             }
-            default -> url = "/index.jsp";
+            default -> url = "/ch09-1/index.jsp";
         }
         getServletContext().getRequestDispatcher(url).forward(request, response);
     }
@@ -42,7 +42,7 @@ public class DownloadServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String url = "/index.jsp";
+        String url = "/ch09-1/index.jsp";
         if ("registerUser".equals(action)) {
             url = registerUser(request, response);
         }
@@ -60,12 +60,12 @@ public class DownloadServlet extends HttpServlet {
             Cookie[] cookies = request.getCookies();
             String email = CookieUtil.getCookieValue(cookies, "emailCookie");
             if (email == null || email.isEmpty()) {
-                return "/register.jsp";
+                return "/ch09-1/register.jsp";
             }
             String firstName = CookieUtil.getCookieValue(cookies, "firstNameCookie");
             session.setAttribute("user", new User(firstName, "", email));
         }
-        return "/download.jsp";
+        return "/ch09-1/download.jsp";
     }
 
     private String registerUser(HttpServletRequest request, HttpServletResponse response) {
@@ -78,7 +78,7 @@ public class DownloadServlet extends HttpServlet {
 
         addCookie(response, "emailCookie", email);
         addCookie(response, "firstNameCookie", firstName);
-        return "/download.jsp";
+        return "/ch09-1/download.jsp";
     }
 
     private void addCookie(HttpServletResponse response, String name, String value) {
