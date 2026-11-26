@@ -1,23 +1,28 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ include file="/includes/header.html" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Murach's Java Servlets and JSP</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+</head>
+<body>
+<h1>Downloads</h1>
 
-<h1>Join our email list</h1>
-<p>To join our email list, enter your name and email address below.</p>
-
-<c:if test="${message != null}">
-    <p><i>${message}</i></p>
+<%-- Show the welcome message only if the first name cookie has a value --%>
+<c:if test="${cookie.firstNameCookie.value != null}">
+    <p>Welcome back, <c:out value="${cookie.firstNameCookie.value}"/>!</p>
 </c:if>
 
-<form action="emailList" method="post">
-    <input type="hidden" name="action" value="add">
-    <label class="pad_top">Email:</label>
-    <input type="email" name="email" value="${user.email}"><br>
-    <label class="pad_top">First Name:</label>
-    <input type="text" name="firstName" value="${user.firstName}"><br>
-    <label class="pad_top">Last Name:</label>
-    <input type="text" name="lastName" value="${user.lastName}"><br>
-    <label>&nbsp;</label>
-    <input type="submit" value="Join Now" class="margin_left">
-</form>
+<h2>List of albums</h2>
+<ul>
+    <li><a href="download?action=checkUser&amp;productCode=8601">86 (the band) - True Life Songs and Pictures</a></li>
+    <li><a href="download?action=checkUser&amp;productCode=pf01">Paddlefoot - The first CD</a></li>
+    <li><a href="download?action=checkUser&amp;productCode=pf02">Paddlefoot - The second CD</a></li>
+    <li><a href="download?action=checkUser&amp;productCode=jr01">Joe Rut - Genuine Wood Grained Finish</a></li>
+</ul>
 
-<%@ include file="/includes/footer.jsp" %>
+<p><a href="download?action=viewCookies">View all cookies</a> |
+   <a href="download?action=deleteCookies">Delete cookies</a></p>
+</body>
+</html>
