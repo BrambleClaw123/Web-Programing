@@ -1,8 +1,7 @@
-package com.example.baitapc6.business;
+package murach.email;
 
-import com.example.baitapc6.model.User;
+import murach.business.User;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-@WebServlet("/emailList")
 public class EmailListServlet extends HttpServlet {
 
     @Override

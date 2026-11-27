@@ -64,7 +64,5 @@
         <input type="submit" value="Checkout">
     </form>
 </c:if>
-<hr>
-<p><a href="${pageContext.request.contextPath}/">&laquo; Back to list of chapter</a></p>
 </body>
 </html>

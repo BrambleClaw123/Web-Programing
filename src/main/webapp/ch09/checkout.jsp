@@ -14,7 +14,5 @@
     <input type="hidden" name="action" value="shop">
     <input type="submit" value="Continue Shopping">
 </form>
-<hr>
-<p><a href="${pageContext.request.contextPath}/">&laquo; Back to list of chapter</a></p>
 </body>
 </html>

@@ -22,7 +22,5 @@
     <label>&nbsp;</label>
     <input type="submit" value="Register" class="margin_left">
 </form>
-<hr>
-<p><a href="${pageContext.request.contextPath}/">&laquo; Back to list of chapter</a></p>
 </body>
 </html>

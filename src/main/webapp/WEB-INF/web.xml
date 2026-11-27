@@ -10,14 +10,39 @@
         <param-value>custserv@murach.com</param-value>
     </context-param>
 
-    <!-- Chapter 9 Exercise 2: ProductsServlet mapped to /loadProducts -->
+    <!-- Servlet mappings -->
+    <servlet>
+        <servlet-name>EmailListServlet</servlet-name>
+        <servlet-class>murach.email.EmailListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>murach.download.DownloadServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ProductsServlet</servlet-name>
         <servlet-class>murach.cart.ProductsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>murach.cart.CartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EmailListServlet</servlet-name>
+        <url-pattern>/emailList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/download</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductsServlet</servlet-name>
         <url-pattern>/loadProducts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
 
     <!-- No scripting allowed in any JSP -->
@@ -29,7 +54,7 @@
         </jsp-property-group>
     </jsp-config>
 
-    <!-- Default page = menu to choose an exercise -->
+    <!-- Default page: forwards to the first tab -->
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

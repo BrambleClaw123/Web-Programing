@@ -24,6 +24,12 @@ public class ProductsServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("products", products);
 
-        getServletContext().getRequestDispatcher("/ch09-2/index.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/ch09/index.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
     }
 }

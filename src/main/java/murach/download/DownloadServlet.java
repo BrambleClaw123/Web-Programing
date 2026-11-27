@@ -1,17 +1,16 @@
 package murach.download;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import murach.business.User;
+import murach.util.CookieUtil;
 
 import java.io.IOException;
 
-@WebServlet("/download")
 public class DownloadServlet extends HttpServlet {
 
     @Override
@@ -23,16 +22,16 @@ public class DownloadServlet extends HttpServlet {
             action = "viewAlbums";
         }
 
-        String url = "/ch09-1/index.jsp";
+        String url = "/loadProducts";
         switch (action) {
-            case "viewAlbums" -> url = "/ch09-1/index.jsp";
+            case "viewAlbums" -> url = "/loadProducts";
             case "checkUser" -> url = checkUser(request);
-            case "viewCookies" -> url = "/ch09-1/view_cookies.jsp";
+            case "viewCookies" -> url = "/ch09/view_cookies.jsp";
             case "deleteCookies" -> {
                 deleteCookies(request, response);
-                url = "/ch09-1/index.jsp";
+                url = "/loadProducts";
             }
-            default -> url = "/ch09-1/index.jsp";
+            default -> url = "/loadProducts";
         }
         getServletContext().getRequestDispatcher(url).forward(request, response);
     }
@@ -42,7 +41,7 @@ public class DownloadServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String url = "/ch09-1/index.jsp";
+        String url = "/loadProducts";
         if ("registerUser".equals(action)) {
             url = registerUser(request, response);
         }
@@ -60,12 +59,12 @@ public class DownloadServlet extends HttpServlet {
             Cookie[] cookies = request.getCookies();
             String email = CookieUtil.getCookieValue(cookies, "emailCookie");
             if (email == null || email.isEmpty()) {
-                return "/ch09-1/register.jsp";
+                return "/ch09/register.jsp";
             }
             String firstName = CookieUtil.getCookieValue(cookies, "firstNameCookie");
             session.setAttribute("user", new User(firstName, "", email));
         }
-        return "/ch09-1/download.jsp";
+        return "/ch09/download.jsp";
     }
 
     private String registerUser(HttpServletRequest request, HttpServletResponse response) {
@@ -78,7 +77,7 @@ public class DownloadServlet extends HttpServlet {
 
         addCookie(response, "emailCookie", email);
         addCookie(response, "firstNameCookie", firstName);
-        return "/ch09-1/download.jsp";
+        return "/ch09/download.jsp";
     }
 
     private void addCookie(HttpServletResponse response, String name, String value) {

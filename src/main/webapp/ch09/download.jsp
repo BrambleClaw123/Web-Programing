@@ -11,8 +11,6 @@
 <p>Thanks for registering, <c:out value="${sessionScope.user.firstName}"/>.</p>
 <p>Product code: <c:out value="${sessionScope.productCode}"/></p>
 <p>Your download would start here.</p>
-<p><a href="${pageContext.request.contextPath}/download?action=viewAlbums">Return to the list of albums</a></p>
-<hr>
-<p><a href="${pageContext.request.contextPath}/">&laquo; Back to list of chapter</a></p>
+<p><a href="${pageContext.request.contextPath}/loadProducts">Return to the list of albums</a></p>
 </body>
 </html>

@@ -2,7 +2,6 @@ package murach.cart;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,7 +13,6 @@ import murach.data.ProductIO;
 
 import java.io.IOException;
 
-@WebServlet("/cart")
 public class CartServlet extends HttpServlet {
 
     @Override
@@ -30,9 +28,9 @@ public class CartServlet extends HttpServlet {
         }
 
         // perform action and set URL to appropriate page
-        String url = "/ch09-2/index.jsp";
+        String url = "/loadProducts";
         if (action.equals("shop")) {
-            url = "/ch09-2/index.jsp";            // the "index" page
+            url = "/loadProducts";            // the "index" page
         } else if (action.equals("cart")) {
             String productCode = request.getParameter("productCode");
             String quantityString = request.getParameter("quantity");
@@ -70,11 +68,17 @@ public class CartServlet extends HttpServlet {
             }
 
             session.setAttribute("cart", cart);
-            url = "/ch09-2/cart.jsp";
+            url = "/ch09/cart.jsp";
         } else if (action.equals("checkout")) {
-            url = "/ch09-2/checkout.jsp";
+            url = "/ch09/checkout.jsp";
         }
 
         sc.getRequestDispatcher(url).forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);   // lets the "View Cart" link work
     }
 }
